@@ -7,7 +7,6 @@ import {
     Menu,
     MenuButton,
     MenuList,
-    useDisclosure,
     useColorModeValue,
     Stack,
     Text,
@@ -18,19 +17,19 @@ import {
 
 import { FaMoon, FaSun } from "react-icons/fa";
 
-const NavLink = () => (
-    <Link
-        px={2}
-        py={1}
-        rounded={'md'}
-        _hover={{
-            textDecoration: 'none',
-            bg: useColorModeValue('gray.200', 'gray.700'),
-        }}
-        href={'#'}>
-        {children}
-    </Link>
-);
+// const NavLink = () => (
+//     <Link
+//         px={2}
+//         py={1}
+//         rounded={'md'}
+//         _hover={{
+//             textDecoration: 'none',
+//             bg: useColorModeValue('gray.200', 'gray.700'),
+//         }}
+//         href={'#'}>
+//         {children}
+//     </Link>
+// );
 
 export default function Nav({ url, name, email, button1, button }) {
     const { colorMode, toggleColorMode } = useColorMode();
@@ -71,7 +70,7 @@ export default function Nav({ url, name, email, button1, button }) {
                                         <Heading size='sm'>{name}</Heading>
                                     </Center>
                                     <Center>
-                                        <Text>{email}</Text>
+                                        <Text opacity={0.7} fontSize='sm' >{email}</Text>
                                     </Center>
                                     <br />
                                     {button1}

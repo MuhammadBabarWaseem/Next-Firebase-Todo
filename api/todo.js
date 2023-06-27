@@ -9,7 +9,7 @@ import {
 
 
 const addTodo = async ({ userId, title, description, status }) => {
-    
+
     try {
         await addDoc(collection(db, "todo"), {
             user: userId,
@@ -40,4 +40,6 @@ const deleteTodo = async (docId) => {
         console.log(err);
     }
 };
+
+
 export { addTodo, toggleTodoStatus, deleteTodo };

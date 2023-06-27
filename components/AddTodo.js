@@ -25,9 +25,10 @@ const AddTodo = () => {
         if (!isLoggedIn) {
             toast({
                 title: "You must be logged in to create a todo",
+                variant: 'left-accent',
                 position: 'top',
                 status: "error",
-                duration: 9000,
+                duration: 4000,
                 isClosable: true,
             });
             return;
@@ -45,9 +46,10 @@ const AddTodo = () => {
         if (todo.title === '' || todo.description === '') {
             toast({
                 title: "All Fields Are Required",
+                variant: 'left-accent',
                 position: 'top',
                 status: "warning",
-                duration: 9000,
+                duration: 4000,
                 isClosable: true,
             });
             return;
@@ -61,11 +63,14 @@ const AddTodo = () => {
         toast({
             title: "Todo created successfully",
             position: 'top',
+            variant: 'left-accent',
             status: "success",
-            duration: 9000,
+            duration: 4000,
             isClosable: true,
         });
     };
+
+
     return (
         <Box w={["100%", "40%"]} m="0 auto" display="block">
             <Stack direction="column">
