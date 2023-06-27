@@ -85,10 +85,45 @@ const TodoList = () => {
                 shadow={"dark-lg"}
                 transition="0.2s"
                 _hover={{ boxShadow: "sm" }}
-                h={isExpanded ? "auto" : "fit-content"} // Adjust the height based on expansion state
+                h={isExpanded ? "auto" : "fit-content"}
             >
                 <Heading as="h3" fontSize={"xl"}>
-                    {todo.title}
+                    {todo.title}{" "}
+                    <Badge
+                        color="red.500"
+                        bg="inherit"
+                        transition={"0.2s"}
+                        _hover={{
+                            bg: "inherit",
+                            transform: "scale(1.2)",
+                        }}
+                        float="right"
+                        size="xs"
+                        onClick={() => handleTodoDelete(todo.id)}
+                    >
+                        <FaTrash />
+                    </Badge>
+                    <Badge
+                        color={todo.status === "pending" ? "gray.500" : "green.500"}
+                        bg="inherit"
+                        transition={"0.2s"}
+                        _hover={{
+                            bg: "inherit",
+                            transform: "scale(1.2)",
+                        }}
+                        float="right"
+                        size="xs"
+                        onClick={() => handleToggle(todo.id, todo.status)}
+                    >
+                        {todo.status === "pending" ? <FaToggleOff /> : <FaToggleOn />}
+                    </Badge>
+                    <Badge
+                        float="right"
+                        opacity="0.8"
+                        bg={todo.status === "pending" ? "yellow.500" : "green.500"}
+                    >
+                        {todo.status}
+                    </Badge>
                 </Heading>
                 <Text>
                     {isExpanded ? (
