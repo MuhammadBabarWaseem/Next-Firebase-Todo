@@ -25,6 +25,7 @@ const AddTodo = () => {
         if (!isLoggedIn) {
             toast({
                 title: "You must be logged in to create a todo",
+                position: 'top',
                 status: "error",
                 duration: 9000,
                 isClosable: true,
@@ -41,12 +42,29 @@ const AddTodo = () => {
             userId: user.uid,
         };
 
+        if (todo.title === '' || todo.description === '') {
+            toast({
+                title: "All Fields Are Required",
+                position: 'top',
+                status: "warning",
+                duration: 9000,
+                isClosable: true,
+            });
+            return;
+        }
+
         await addTodo(todo);
         setIsLoading(false);
         setTitle("");
         setDescription("");
         setStatus("pending");
-        toast({ title: "Todo created successfully", status: "success" });
+        toast({
+            title: "Todo created successfully",
+            position: 'top',
+            status: "success",
+            duration: 9000,
+            isClosable: true,
+        });
     };
     return (
         <Box w="40%" margin={"0 auto"} display="block" >
