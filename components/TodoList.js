@@ -72,10 +72,10 @@ const TodoList = () => {
 
         const isExpanded = expandedId === todo.id;
 
-        const truncatedDescription = todo.description.slice(0, 30);
+        const truncatedDescription = todo.description.slice(0, 20);
         const fullDescription = todo.description;
 
-        const isLargeText = todo.description.length > 30;
+        const isLargeText = todo.description.length > 100;
 
         return (
             <Box
