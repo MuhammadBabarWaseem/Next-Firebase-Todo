@@ -11,7 +11,7 @@ export default function Home() {
 
 
   return (
-    <Container maxW="7xl">
+    <Container maxW="7xl" mb={10}>
       <Auth />
       <AddTodo />
       <TodoList />

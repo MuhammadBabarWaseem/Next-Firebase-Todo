@@ -107,7 +107,6 @@ const Auth = () => {
                             <canvas ref={chartRef} />
                         </Box>
                     </Flex>
-
                 </>
 
             )}
