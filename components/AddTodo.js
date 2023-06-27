@@ -67,11 +67,13 @@ const AddTodo = () => {
         });
     };
     return (
-        <Box w="40%" margin={"0 auto"} display="block" >
+        <Box w={["100%", "40%"]} m="0 auto" display="block">
             <Stack direction="column">
                 <Input
+                    size={["md", "md"]}
                     placeholder="Title"
                     value={title}
+
                     onChange={(e) => setTitle(e.target.value)}
                 />
                 <Textarea
@@ -95,7 +97,6 @@ const AddTodo = () => {
                 </Select>
                 <Button
                     onClick={() => handleTodoCreate()}
-                    disabled={title.length < 1 || description.length < 1 || isLoading}
                     variantcolor="teal"
                     variant="solid"
                 >

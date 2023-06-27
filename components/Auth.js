@@ -15,29 +15,26 @@ const Auth = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
-                // The signed-in user info.
+                console.log(token)
                 const user = result.user;
-                // ...
+                console.log(user)
             })
             .catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
                 const errorMessage = error.message;
-                // The email of the user's account used.
+                console.log(errorMessage)
                 const email = error.customData.email;
-                // The AuthCredential type that was used.
+                console.log(email)
                 const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
+                console.log(credential)
             });
     };
     return (
-        <Box position={"sticky"} top="5%" right="5%">
+        <Box position={"relative"} top="5%" right="5%">
             {isLoggedIn && (
                 <>
-                {console.log(user)}
+                    {console.log(user)}
                     <Nav url={user.photoURL} name={user.displayName} email={user.email} button1={
                         <Button left={12} onClick={() => auth.signOut()} leftIcon={<FiLogOut />}>
                             Logout

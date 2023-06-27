@@ -75,7 +75,7 @@ const TodoList = () => {
         const truncatedDescription = todo.description.slice(0, 30);
         const fullDescription = todo.description;
 
-        const isLargeText = todo.description.length > 100;
+        const isLargeText = todo.description.length > 30;
 
         return (
             <Box
@@ -125,23 +125,23 @@ const TodoList = () => {
                         {todo.status}
                     </Badge>
                 </Heading>
-                <Text>
+                <div>
                     {isExpanded ? (
-                        <div>
+                        <Text>
                             {fullDescription}
                             {isLargeText && (
                                 <Button size='xs' variant='ghost' onClick={handleCollapse}>Show Less</Button>
                             )}
-                        </div>
+                        </Text>
                     ) : (
-                        <div>
+                        <Text>
                             {truncatedDescription}
                             {isLargeText && (
                                 <Button size='xs' variant='ghost' onClick={() => handleExpand(todo.id)}>Show More</Button>
                             )}
-                        </div>
+                        </Text>
                     )}
-                </Text>
+                </div>
             </Box>
         );
     };
